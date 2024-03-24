@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Day</title>
+         <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!--CSS style-->
+    <link rel="stylesheet" href="style.css" rel="stylesheet">
+    <!--js-->
+    <script src="script.js"></script>
+    <!--font-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+    <body>
+        <div class="homepage">
+        <div class="container"> 
+            <div class="row">
+                <div class="col-md-6 mx-auto mt-2">
+                    <div class="location">
+                        <div class="input-icon-container">
+                            <i class="fab fa-searchengin"></i>
+                            <input type="text" id="location" placeholder="Enter location">
+                       
+                        <div class="button">
+                            <button id="search">Check Weather</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weather-info" id="weather-info">
+            <p id="visibility"></p>
+            <p id="humidity"></p>
+            <p id="wind"></p>
+        </div>
+        <div class="icon">
+            <a href="./index.html"><i class="fas fa-igloo fa-2xxxl"></i></a>
+        </div>  
+                <div class="row mt-5">
+                <div class="col-md-6 mx-auto mt-5">
+                    <div class="cloudy">
+                        <div class="cloudyimg">
+                    <img src="cloudy.svg" class="img-fluid" alt="cloud">
+                    <p>It's Cloudy</p>
+                </div>
+                <div class="col-md-6 ml-5 mt-5">
+                    <div class="cloudytext">
+                        <p id="visibilityText">Visibility</p>
+                        <p id="humidityText">Humidity</p>
+                        <p id="windText">Wind</p>
+                    </div>
+            </div>
+                </div>
+            </div>
+            </div>
+          <!--  <div class="row mt-3">
+            <div class="col-md-6">-->
+                <div class="bottom_degree">
+                <div class="bottomdegree">
+                <div class="degreetext mt-5 ml-5">
+                    <h1>34<p2>o</p2></h1>
+            </div>
+                <div class="degree_text ml-5">
+                    <p>Lagos, Nigeria.</p>
+                    <p2>07:23pm- Monday, 20 Mar. ‘24</p2>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+            <div class="degree_time mt-5">
+                <div class="tom mt-5">
+                    <img src="sun.svg" alt="sun">
+                    <div class="tom_text">
+                        <p>TOM
+                        <p2>50/100</p2></p>
+                </div>
+            </div>
+            <div class="tom mt-5 ml-md-4">
+                <img src="cloud small.svg" alt="cloud">
+                <div class="tom_text">
+                    <p>TUE
+                    <p2>30/103</p></p>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+           </div>
+             <!--</div>-->
+        </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
