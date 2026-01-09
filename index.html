@@ -1,98 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Day</title>
-         <!-- Bootstrap CSS -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!--CSS style-->
-    <link rel="stylesheet" href="style.css" rel="stylesheet">
-    <!--js--> 
-    <script src="script.js"></script>
-    <!--font-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    </head>
-    <body>
-        <div class="homepage">
-        <div class="container"> 
+    <!-- CSS style -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="homepage">
+        <div class="container">
+            <!-- Search Bar -->
             <div class="row">
-                <div class="col-md-6 mx-auto mt-2">
+                <div class="col-md-8 mx-auto mt-4">
                     <div class="location">
                         <div class="input-icon-container">
-                            <i class="fab fa-searchengin"></i>
-                            <input type="text" id="location" placeholder="Enter location">
-                            <div class="col-md-6">
-                        <div class="button">
-                            <button id="search">Check Weather</button>
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="location" placeholder="Enter city name...">
+                            <button id="search" class="btn-search">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Weather Section -->
+            <div class="row mt-5">
+                <div class="col-md-8 mx-auto">
+                    <div id="current-weather" class="current-weather-section" style="display: none;">
+                        <div class="current-weather-content">
+                            <div class="weather-left">
+                                <div class="weather-icon-container">
+                                    <img id="weather-icon" src="" alt="weather icon" class="weather-icon">
+                                </div>
+                                <div class="temperature-section">
+                                    <h1 id="temperature" class="main-temp">--°C</h1>
+                                    <p id="description" class="weather-description">--</p>
+                                </div>
+                            </div>
+                            <div class="weather-right">
+                                <h3 id="location-name" class="location-name">--</h3>
+                                <p id="date-time" class="date-time">--</p>
+                                <div class="weather-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-droplet"></i>
+                                        <p>Humidity: <span id="humidity">--%</span></p>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-wind"></i>
+                                        <p>Wind: <span id="wind">-- m/s</span></p>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-eye"></i>
+                                        <p>Visibility: <span id="visibility">-- km</span></p>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-gauge"></i>
+                                        <p>Pressure: <span id="pressure">-- hPa</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="error-message" style="display: none;">
+                        <p class="error-text">Unable to fetch weather data. Please check the location and try again.</p>
+                    </div>
+
+                    <!-- Loading Indicator -->
+                    <div id="loading" style="display: none;">
+                        <p class="loading-text">Loading weather data...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5-Day Forecast Section -->
+            <div class="row mt-5">
+                <div class="col-md-10 mx-auto">
+                    <div id="forecast-section" style="display: none;">
+                        <h4 class="forecast-title">5-Day Forecast</h4>
+                        <div class="forecast-container" id="forecast">
+                            <!-- Forecast cards will be added here dynamically -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        <div class="weather-info" id="weather-info">
-            <p id="visibility"></p>
-            <p id="humidity"></p>
-            <p id="wind"></p>
-        </div>
-        <div class="icon">
-            <a href="./index.html"><i class="fas fa-igloo fa-2xxxl"></i></a>
-        </div>  
-                <div class="row mt-5">
-                <div class="col-md-6 mx-auto mt-5">
-                    <div class="cloudy">
-                        <div class="cloudyimg">
-                    <img src="cloudy.svg" class="img-fluid" alt="cloud">
-                    <p>It's Cloudy</p>
-                </div>
-                <div class="col-md-6 ml-5 mt-5">
-                    <div class="cloudytext">
-                        <p id="visibilityText">Visibility</p>
-                        <p id="humidityText">Humidity</p>
-                        <p id="windText">Wind</p>
-                    </div>
-            </div>
-                </div>
-            </div>
-            </div>
-          <!--  <div class="row mt-3">
-            <div class="col-md-6">-->
-                <div class="bottom_degree">
-                <div class="bottomdegree">
-                <div class="degreetext mt-5 ml-5">
-                    <h1>34<h2>o</h2></h1>
-            </div>
-                <div class="degree_text ml-5">
-                    <p>Lagos, Nigeria.</p>
-                    <p2>07:23pm- Monday, 20 Mar. ‘24</p2>
-                </div>
-            </div>
-            <div class="row">
-            <div class="col-md-6">
-            <div class="degree_time mt-5">
-                <div class="tom mt-5">
-                    <img src="sun.svg" alt="sun">
-                    <div class="tom_text">
-                        <p>TOM
-                        <p2>50/100</p2></p>
-                </div>
-            </div>
-            <div class="tom mt-5 ml-md-4">
-                <img src="cloud small.svg" alt="cloud">
-                <div class="tom_text">
-                    <p>TUE
-                    <p2>30/103</p></p>
-                </div>
-            </div>
-            </div>
-            </div>
-        </div>
-           </div>
-             <!--</div>-->
-        </div>
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    </body>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
