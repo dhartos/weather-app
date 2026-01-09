@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather';
     
     const searchBtn = document.getElementById('search');
+    const backBtn = document.getElementById('back-btn');
     const locationInput = document.getElementById('location');
     const currentWeatherDiv = document.getElementById('current-weather');
     const errorDiv = document.getElementById('error-message');
@@ -14,11 +15,21 @@ document.addEventListener("DOMContentLoaded", function() {
     // Search button click event
     searchBtn.addEventListener('click', handleSearch);
     
+    // Back button click event
+    backBtn.addEventListener('click', goHome);
+    
     // Enter key in input field
     locationInput.addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
             event.preventDefault();
             handleSearch();
+        }
+    });
+
+    // Clear input field event
+    locationInput.addEventListener('input', function() {
+        if (this.value.trim() === '') {
+            goHome();
         }
     });
 
@@ -31,6 +42,25 @@ document.addEventListener("DOMContentLoaded", function() {
         
         fetchWeather(city);
         fetchForecast(city);
+    }
+
+    function goHome() {
+        // Clear the input field
+        locationInput.value = '';
+        
+        // Hide all weather sections
+        currentWeatherDiv.style.display = 'none';
+        errorDiv.style.display = 'none';
+        loadingDiv.style.display = 'none';
+        forecastSection.style.display = 'none';
+        
+        // Show the info section
+        if (appInfoSection) {
+            appInfoSection.style.display = 'block';
+        }
+        
+        // Hide back button
+        backBtn.style.display = 'none';
     }
 
     function fetchWeather(city) {
@@ -111,6 +141,9 @@ document.addEventListener("DOMContentLoaded", function() {
         if (appInfoSection) {
             appInfoSection.style.display = 'none';
         }
+        
+        // Show back button
+        backBtn.style.display = 'block';
     }
 
     function displayForecast(data) {
@@ -178,6 +211,11 @@ document.addEventListener("DOMContentLoaded", function() {
         forecastSection.style.display = 'none';
         if (appInfoSection) {
             appInfoSection.style.display = 'none';
+        }
+        
+        // Show back button if input has text
+        if (locationInput.value.trim() !== '') {
+            backBtn.style.display = 'block';
         }
     }
 });
