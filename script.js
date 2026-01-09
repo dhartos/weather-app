@@ -180,5 +180,4 @@ document.addEventListener("DOMContentLoaded", function() {
             appInfoSection.style.display = 'none';
         }
     }
-    }
 });
