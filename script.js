@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const errorDiv = document.getElementById('error-message');
     const loadingDiv = document.getElementById('loading');
     const forecastSection = document.getElementById('forecast-section');
+    const appInfoSection = document.querySelector('.app-info-section');
 
     // Search button click event
     searchBtn.addEventListener('click', handleSearch);
@@ -104,9 +105,12 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('weather-icon').src = iconUrl;
         document.getElementById('weather-icon').alt = description;
 
-        // Show the weather section
+        // Show the weather section and hide info section
         currentWeatherDiv.style.display = 'block';
         errorDiv.style.display = 'none';
+        if (appInfoSection) {
+            appInfoSection.style.display = 'none';
+        }
     }
 
     function displayForecast(data) {
@@ -172,5 +176,9 @@ document.addEventListener("DOMContentLoaded", function() {
         errorDiv.querySelector('.error-text').textContent = message;
         currentWeatherDiv.style.display = 'none';
         forecastSection.style.display = 'none';
+        if (appInfoSection) {
+            appInfoSection.style.display = 'none';
+        }
+    }
     }
 });
